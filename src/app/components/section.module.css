@@ -1,0 +1,36 @@
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.section0 {
+  background-color: #ff8585;
+}
+
+.section1 {
+  background-color: #ffae73;
+}
+
+.section2 {
+  background-color: #fbb6ce;
+}
+
+.section3 {
+  background-color: #c3bef0;
+}
+
+.section4 {
+  background-color: #73b0ff;
+}
+
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0;
+}

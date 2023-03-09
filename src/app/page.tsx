@@ -4,21 +4,33 @@
 // import { Inter } from 'next/font/google'
 import styles from "./page.module.css";
 import Section from "./components/section";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { fromEvent, interval } from "rxjs";
 import { throttle } from "rxjs/operators";
+import WhoAmI from "./components/sections/whoami";
+import CircleCues from "./components/circle-cues";
 
 // const inter = Inter({ subsets: ['latin'] })
 
-const sections: number[] = [0, 1, 2, 3, 4];
+const sections: React.ReactNode[] = [
+  <WhoAmI key="WhoAmI" />,
+  <div key="key1">Page 1</div>,
+  <div key="key2">Page 2</div>,
+  <div key="key3">Page 3</div>,
+  <div key="key4">Page 4</div>,
+];
 
 export default function Home() {
   const [activePage, setActivePage] = useState(0);
 
-  const renderedSections = sections.map((section) => (
-    <Section idx={section} active={activePage} key={`section-${section}`} />
-  ));
-  console.log("initLen " + renderedSections.length);
+  const renderedSections = sections.map((section, idx) => {
+    const sectionKey = `section-${idx}`;
+    return (
+      <Section idx={idx} active={activePage} key={sectionKey}>
+        {section}
+      </Section>
+    );
+  });
 
   useEffect(() => {
     function nextPageBounded(direction: number) {
@@ -36,6 +48,7 @@ export default function Home() {
         event.preventDefault();
 
         const direction = event.deltaY > 0 ? 1 : -1;
+        console.log("DELTA " + direction);
         const nextPage = nextPageBounded(direction);
 
         if (nextPage === activePage) return;
@@ -48,5 +61,12 @@ export default function Home() {
     };
   }, [activePage]);
 
-  return <main className={styles.main}>{renderedSections}</main>;
+  console.log("sections " + renderedSections.length);
+
+  return (
+    <main className={styles.main}>
+      {renderedSections}
+      <CircleCues active={activePage} amount={renderedSections.length} />
+    </main>
+  );
 }

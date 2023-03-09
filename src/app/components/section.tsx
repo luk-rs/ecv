@@ -1,9 +1,10 @@
 import styles from "./section.module.css";
-import React, { Component, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export interface SectionProps {
   idx: number;
   active: number;
+  children?: React.ReactNode;
 }
 
 export default function Section(props: SectionProps) {
@@ -24,7 +25,7 @@ export default function Section(props: SectionProps) {
 
   return (
     <div ref={refElem} className={className}>
-      Page {props.idx}
+      {props.children}
     </div>
   );
 }

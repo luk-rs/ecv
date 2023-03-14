@@ -1,0 +1,29 @@
+.nav {
+  position: sticky;
+  background-color: rgba(48, 60, 66, 1);
+  border-bottom: 2px solid rgb(37, 155, 123);
+  height: 50px;
+  width: 88.5%;
+  display: flex;
+  align-items: center;
+  top: 0px;
+  padding-left: 11.5%;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding-inline-start: 0px;
+}
+
+.nav ul li {
+  text-decoration: none;
+  padding-inline-end: 1em;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #eeeeee;
+  font-size: 1em;
+}

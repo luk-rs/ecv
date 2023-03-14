@@ -7,17 +7,14 @@ interface CircleCuesProps {
 }
 
 export default function CircleCues(props: CircleCuesProps) {
-  console.log("props amount " + props.amount);
   const renderedCircles: React.ReactNode[] = Array(props.amount)
     .fill(0)
     .map((_, idx) => {
       const circleKey = `circle-cue-${idx}`;
       const className = `${styles.circle}`;
-      console.log(className);
       return <div className={className} key={circleKey} />;
     });
 
-  console.log("circles " + renderedCircles.length + " amoount " + props.amount);
   const [circles, setCircles] = useState(renderedCircles);
 
   useEffect(() => {

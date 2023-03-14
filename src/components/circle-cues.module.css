@@ -1,5 +1,5 @@
-.circleHolder{
-  position :fixed;
+.circleHolder {
+  position: fixed;
   min-height: 100px;
   width: 2.5%;
   right: 1%;
@@ -13,14 +13,21 @@
 }
 
 .circle {
-  --active-cue:rgba(64, 64, 64, 0.5);
-  --inactive-cue:rgba(192, 192, 192, 0.5);
+  --active-cue: white;
+  --inactive-cue: rgba(192, 192, 192, 0.5);
   opacity: 0.6;
   width: 10px;
   height: 10px;
   margin: 10px 0;
   border-radius: 50%;
-  background: linear-gradient(var(--inactive-cue), var(--inactive-cue) 33.3%, var(--active-cue) 33.3%, var(--active-cue) 66.6%, var(--inactive-cue) 66.6%, var(--inactive-cue));
+  background: linear-gradient(
+    var(--inactive-cue),
+    var(--inactive-cue) 33.3%,
+    var(--active-cue) 33.3%,
+    var(--active-cue) 66.6%,
+    var(--inactive-cue) 66.6%,
+    var(--inactive-cue)
+  );
   background-size: 100% 300%;
   background-position: 100% center;
   transition: background-position-y 0.5s ease-in-out;

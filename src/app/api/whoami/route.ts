@@ -1,4 +1,6 @@
-interface ContactInfo {
+import { NextResponse } from "next/server";
+
+export interface ContactInfo {
   name: string;
   birthdate: Date;
   email: string;
@@ -8,9 +10,8 @@ interface ContactInfo {
   title: string;
 }
 
-export async function GET(request: Request): Promise<ContactInfo> {
-  await Promise.resolve();
-  return {
+export async function GET(request: Request) {
+  return NextResponse.json({
     name: "Luis Santos",
     birthdate: new Date("1987-03-03T09:20:00.000Z"),
     email: "santos8@gmail.com",
@@ -18,5 +19,5 @@ export async function GET(request: Request): Promise<ContactInfo> {
     location: new URL("https://example.com"),
     linkedin: new URL("https://linkedin.com/in/luis-santos"),
     title: "Software Engineer",
-  };
+  });
 }

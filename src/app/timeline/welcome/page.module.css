@@ -1,0 +1,8 @@
+.homepage_wrapper {
+  background-color: rgba(37, 37, 38, 0.25);
+  margin-top: 33px;
+  margin-bottom: 10px;
+  border: 2px solid rgb(37, 155, 123);
+  display: flex;
+  flex-grow: 0.77;
+}

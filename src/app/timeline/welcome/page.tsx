@@ -1,64 +1,60 @@
 "use client";
 
-import styles from "./page.module.css";
-import { Fira_Mono } from "next/font/google";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { synthwave84 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { motion } from "framer-motion";
+import React from "react";
 
-const fira_code = Fira_Mono({
-  weight: "700",
-  subsets: ["latin"],
-  display: "swap",
-});
+const sentences: React.ReactNode[] = [
+  <div key="sentence-1">Hello fellow human</div>,
+  <p key="sentence-2">
+    My name is <b style={{ color: "#259b7b" }}>Luis Santos</b> and I've been a
+    Software Engineer for <i>12</i> years.
+  </p>,
+  <p key="sentence-3">
+    I'm a <b style={{ color: "#259b7b" }}> Lead Software Engineer</b> working{" "}
+    <i style={{ fontSize: "1.3em" }}>@</i> FARO Technologies.
+  </p>,
+  <p key="sentence-4">
+    I live in <b style={{ color: "#259b7b" }}> Vila Real</b> 📌 in Portugal.
+  </p>,
+];
 
-const codeString = `// It's Monday morning, and the coffee hasn't kicked in yet.
-// The codebase is a mess, and bugs are crawling out of every file.
-// I'm squinting at my screen, trying to figure out where to start.
-// Suddenly, my phone rings - it's my boss.
-// I take a deep breath and answer the call.
-
-fn main() {
-  let day = "Monday";
-  let coffee_level = 2;
-  let codebase = "mess";
-
-  handle_situation(day, coffee_level, codebase);
+export default function Welcome() {
+  return (
+    <div
+      style={{
+        width: "70%",
+        fontSize: "3.3em",
+        marginLeft: "10%",
+        marginBottom: 50,
+      }}
+    >
+      {sentences.map((item, idx) => {
+        const key = `sentence-${idx}-animated`;
+        return (
+          <Sentence key={key} idx={idx}>
+            {item}
+          </Sentence>
+        );
+      })}
+    </div>
+  );
 }
 
-fn handle_situation(day: &str, coffee_level: i32, codebase: &str) {
-
-  if day == "Monday" && coffee_level < 3 && codebase == "mess" {
-      let bugs = find_bugs();
-      squint();
-      let ringtone = play_ringtone("boss");
-      let response = answer_call(ringtone);
-      take_deep_breath();
-  } else {
-    // Everything is under control
-  }
-
-}`;
-
-export default function Timeline() {
-  const codeElementKey = 'code[class*="language-"]';
-  synthwave84[codeElementKey] = {
-    ...synthwave84[codeElementKey],
-    fontFamily: fira_code.style.fontFamily,
-    fontSize: ".7em",
-  };
-
+function Sentence({
+  children,
+  idx,
+}: {
+  children: React.ReactNode;
+  idx: number;
+}) {
   return (
-    <div className={styles.homepage_wrapper}>
-      <SyntaxHighlighter
-        language="rust"
-        style={synthwave84}
-        showLineNumbers
-        children={codeString}
-        customStyle={{
-          backgroundImage: undefined,
-          lineHeight: 1,
-        }}
-      />
-    </div>
+    <motion.div
+      initial={{ x: -211, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ duration: 1.1, delay: 0.11 * idx }}
+      viewport={{ amount: 0.6 }}
+    >
+      {children}
+    </motion.div>
   );
 }

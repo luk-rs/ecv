@@ -1,8 +1,19 @@
 "use client";
 
 import Snippet from "./snippet/page";
-import styles from "./page.module.css";
+import Welcome from "./welcome/page";
 
 export default function Timeline() {
-  return <Snippet />;
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }}
+    >
+      <Welcome />
+      <Snippet />
+    </div>
+  );
 }

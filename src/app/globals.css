@@ -1,11 +1,12 @@
-html,
+html {
+  overflow: auto auto;
+}
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: rgba(48, 60, 66, 0.88);
+  height: auto;
+  background-color: rgba(48, 60, 66, 1);
   color: #cccccc;
-  overflow: auto auto;
 }
 
 /* width */

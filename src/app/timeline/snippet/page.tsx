@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { synthwave84 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Image from "next/image";
 import EYE_OVERLAY from "../../../../public/eye_overlay.svg";
+import { motion } from "framer-motion";
 
 const fira_code = Fira_Mono({
   weight: "700",
@@ -60,7 +61,6 @@ export default function Snippet() {
   useEffect(() => {
     const element = document.getElementById(overlaysId);
     if (isHovered) {
-      console.log("adding hovered to " + element);
       element?.classList.add(styles.snippet_overlays_hovered);
     } else {
       element?.classList.remove(styles.snippet_overlays_hovered);
@@ -68,20 +68,22 @@ export default function Snippet() {
   }, [isHovered]);
 
   const hideOverlays = () => setHovered(true);
-
   const showOverlays = () => setHovered(false);
 
   return (
-    <div className={styles.snippet_wrapper}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.65, y: 100 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.5, ease: "easeIn" }}
+      viewport={{ amount: 0.4 }}
+      className={styles.snippet_wrapper}
+    >
       <div id={overlaysId} className={styles.snippet_overlays}>
-        <Image
-          src={EYE_OVERLAY}
-          alt=""
-          width={111}
-          className={styles.snippet_eye}
-        />
+        <div className={styles.snippet_eye}>
+          <Image src={EYE_OVERLAY} alt="" fill />
+        </div>
         <p className={`${styles.snippet_text} ${kanit.className}`}>
-          #timetospare¿‽?
+          #timetospare¿?
         </p>
       </div>
       <div
@@ -100,6 +102,6 @@ export default function Snippet() {
           }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

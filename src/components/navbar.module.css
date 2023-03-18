@@ -1,20 +1,16 @@
 .nav {
-  position: sticky;
-  background-image: linear-gradient(
-    to top,
-    transparent 0%,
-    rgba(48, 60, 66, 1) 100%
-  );
+  position: fixed;
   z-index: 999;
-  height: 50px;
-  width: 88.5%;
+  height: 100%;
+  width: 5%;
+  top:0;
+  bottom: 0;
   display: flex;
+  justify-content: center;
   align-items: center;
-  top: 0px;
-  padding-left: 11.5%;
 }
 
-.nav ul {
+/* .nav ul {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -30,14 +26,16 @@
   text-decoration: none;
   color: #eeeeee;
   font-size: 1em;
-}
+} */
 
-.nav div {
-  position: absolute;
-  top: 0;
-  margin-left: -11.5%;
+.progress_bar {
+  height: 33%;
+  width: 2px;
+  padding-left: 5%;
   background: rgb(37, 155, 123);
-  height: 3px;
-  width: 100%;
-  transform-origin: 0%;
+}
+.progress_bar div{
+  height: 100%;
+  background: rgb(37, 155, 123);
+  transform-origin: 0% 0%;
 }

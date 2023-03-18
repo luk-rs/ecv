@@ -13,8 +13,8 @@ const inter = Inter({
 
 export default function Navbar() {
   const links: React.ReactNode[] = [
-    <Link href="/" key="home-nav" children="Home" />,
-    <Link href="/cv" key="cv-nav" children="CV" />,
+    // <Link href="/" key="home-nav" children="Home" />,
+    // <Link href="/cv" key="cv-nav" children="CV" />,
   ];
 
   const { scrollYProgress, scrollY } = useScroll();
@@ -24,16 +24,18 @@ export default function Navbar() {
 
   return (
     <nav className={styles.nav}>
-      <motion.div
-        style={{ scaleX: scrollYProgress }}
-        className={styles.progress_bar}
-      />
-      <ul className={inter.className}>
+      <div style={{ height: "33%", background: "rgba(37, 155, 123,0.33)" }}>
+        <motion.div
+          style={{ scaleY: scrollYProgress, transformOrigin: "top", height: "33%" }}
+          className={styles.progress_bar}
+        />
+      </div>
+      {/* <ul className={inter.className}>
         {links.map((link, idx) => {
           const key = `nav-li-${idx}`;
           return <li key={key}>{link}</li>;
         })}
-      </ul>
+      </ul> */}
     </nav>
   );
 }

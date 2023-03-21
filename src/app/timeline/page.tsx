@@ -1,19 +1,24 @@
 "use client";
 
-import Snippet from "./snippet/page";
+import Slider from "@/components/slides/slider";
+import styles from "./page.module.css";
 import Welcome from "./welcome/page";
+import { ReactNode } from "react";
 
-export default function Timeline() {
+const paragraphs: ReactNode[] = [
+  <Welcome key="slide-1" />,
+  <p key="slide-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>,
+  <p key="slide-3">"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>,
+  <p key="slide-4">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p >
+]
+
+const Home = () => {
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-      }}
-    >
-      <Welcome />
-      <Snippet />
-    </div>
+    <Slider>
+      {paragraphs}
+    </Slider>
   );
-}
+};
+
+export default Home;

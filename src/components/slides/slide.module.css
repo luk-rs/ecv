@@ -1,0 +1,28 @@
+.container {
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+.progress_track {
+  position: absolute;
+  width: 2px;
+  background-color: lightgray;
+  left: 3.33%;
+  top: 33.3%;
+  height: 33.3%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+.progress_thumb {
+  background-color: slategray;
+  transform-origin: top;
+}

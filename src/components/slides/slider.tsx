@@ -6,14 +6,16 @@ import styles from './slide.module.css';
 import { ReactNode, useEffect } from "react";
 import SliderProgress from './slider-progress';
 import { SliderState } from '@/app/page';
+import { HasEventTargetAddRemove } from 'rxjs/internal/observable/fromEvent';
 
-const wheelDirection$ = fromEvent<WheelEvent>(window, 'wheel', { passive: false })
+
+
+const wheelDirection$ = (window: HasEventTargetAddRemove<WheelEvent>) => fromEvent<WheelEvent>(window, 'wheel', { passive: false })
   .pipe(tap(event => event.preventDefault()))
   .pipe(throttle(_ => interval(1000)))
   .pipe(map(event => Math.sign(event.deltaY)));
 
-
-const Slide = ({ children, idx, state: { activeSlide, setActiveSlide, direction } }: { children: ReactNode, idx: number, state: SliderState }) => {
+const Slide = ({ children, idx, state: { activeSlide, direction } }: { children: ReactNode, idx: number, state: SliderState }) => {
 
   return <motion.div
     style={{ zIndex: idx * 10 }} className={styles.slide}
@@ -44,7 +46,7 @@ export default function Slider({ children, state: { activeSlide, setActiveSlide,
   });
 
   useEffect(() => {
-    const sub = wheelDirection$
+    const sub = wheelDirection$(window)
       .subscribe(sign => {
 
         setDirection(sign);

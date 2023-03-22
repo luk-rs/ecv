@@ -2,7 +2,7 @@
 
 import { CSSProperties } from "react";
 import Image from "next/image";
-import welcomeMe from "../../../../public/welcome-me.jpg"
+import me_img from "../../../../public/welcome-me.jpg"
 import styles from "./page.module.css"
 import { SliderState } from "@/app/page";
 
@@ -24,7 +24,7 @@ const text = (content: string): Typing[] =>
 const green = (content: string): Typing[] =>
   content.split("").map(char => { return { char, color: "var(--ecv-green)" } });
 
-const experience = (year: number, month: number) => {
+const experience_from = (year: number, month: number) => {
   const now = new Date();
   const targetDate = new Date(year, month - 1); // month is zero-indexed in JavaScript, so we subtract 1
   const msDiff = now.getTime() - targetDate.getTime();
@@ -33,14 +33,22 @@ const experience = (year: number, month: number) => {
   return years;
 };
 
+const experience = experience_from(2011, 11);
+// text("Hello fellow human👋🏼.\n\n My name is "),
+//   green("Luis Santos"),
+//   text(", a proud father of 2 👦🏼👶🏻 located in Vila Real, "),
+//   green("Portugal"),
+//   text(`.\n\n I have 12 years of experience developing software currently as a `),
+//   green("Lead Software Engineer"),
+
 const typings: Typing[] = [
-  text("Hello fellow human👋🏼.\n\n My name is "),
+  text("Hello fellow human.\n\n My name is "),
   green("Luis Santos"),
-  text(", a proud father of 2 👦🏼👶🏻 located in Vila Real, "),
+  text(", a proud father of 2 located in Vila Real, "),
   green("Portugal"),
-  text(`.\n\n I have ${experience(2011, 11)} years of experience developing software currently as a `),
+  text(`.\n\n I have ${experience} years of experience developing software currently as a `),
   green("Lead Software Engineer"),
-  text(".\n\n Thanks for visiting and enjoy the ride… 🚀"),
+  text(".\n\n Thanks for visiting and enjoy the ride… "),
 ]
   .reduce((acc: Typing[], cur) => acc.concat(cur), []);
 
@@ -55,7 +63,7 @@ const Pic = () => {
     <div
       className={styles.welcome_pic}
       style={appear}>
-      <Image src={welcomeMe} alt={""} />
+      <Image src={me_img} alt={""} />
     </div>
   )
 };

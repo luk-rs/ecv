@@ -1,5 +1,6 @@
 "use client";
 
+import Logo from "@/components/logo/logo";
 import Slider from "@/components/slides/slider";
 import { ReactNode, useState } from "react";
 import Welcome from "./slides/welcome/page";
@@ -28,9 +29,12 @@ const Home = () => {
     <p key="slide-4">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p >
   ]
   return (
-    <Slider state={state}>
-      {[...paragraphs()]}
-    </Slider>
+    <>
+      <Logo />
+      <Slider state={state}>
+        {[...paragraphs()]}
+      </Slider>
+    </>
   );
 };
 

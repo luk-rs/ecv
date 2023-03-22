@@ -1,0 +1,53 @@
+.welcome_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.welcome_pic {
+  position: relative;
+  width: 28.9%;
+  padding: 1.1%;
+  visibility: hidden;
+}
+
+@keyframes welcome_pic_appear {
+  0% {
+    visibility: visible;
+    bottom: 3%;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.welcome_typewriter {
+  margin: 0;
+  width: 68.9%;
+  padding: 1.1%;
+  line-height: 3rem;
+  font-size: 2rem;
+}
+
+@keyframes typewriter_char {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.welcome_pic > img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: -5px 5px 10px 1px black;
+}

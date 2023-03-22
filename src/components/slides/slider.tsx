@@ -3,52 +3,57 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { fromEvent, tap, throttle, interval, map } from 'rxjs';
 import styles from './slide.module.css';
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 import SliderProgress from './slider-progress';
+import { SliderState } from '@/app/page';
 
 const wheelDirection$ = fromEvent<WheelEvent>(window, 'wheel', { passive: false })
   .pipe(tap(event => event.preventDefault()))
   .pipe(throttle(_ => interval(1000)))
   .pipe(map(event => Math.sign(event.deltaY)));
 
-export default function Slider({ children }: { children: ReactNode[] }) {
-  const [slide, setSlide] = useState<number>(0);
 
-  const drawSlides = () => children.map((child, idx) => {
+const Slide = ({ children, idx, state: { activeSlide, setActiveSlide, direction } }: { children: ReactNode, idx: number, state: SliderState }) => {
 
+  return <motion.div
+    style={{ zIndex: idx * 10 }} className={styles.slide}
+    initial={{ y: idx === activeSlide ? 0 : "100%" }}
+    animate={{ y: idx <= activeSlide ? 0 : "100%" }}
+    exit={{ opacity: 0 }}
+    transition={{ ease: direction > 0 ? 'circOut' : 'circIn' }}>
+    {children}
+  </motion.div>
+};
 
+export default function Slider({ children, state: { activeSlide, setActiveSlide, direction, setDirection } }: {
+  children: ReactNode[],
+  state: SliderState
+}) {
+
+  const drawSlides: (state: SliderState) => ReactNode[] = () => children.map((child, idx) => {
     const nth = idx + 1;
     const nth_key = `slide_container_${nth}_${children.length}`;
-
     return (
-      <motion.div
-        key={nth_key} className={styles.slide}
-        style={{ zIndex: nth * 10 }}
-        initial={{
-          y: idx === slide ? 0 : "100%"
-        }}
-        animate={{
-          y: idx <= slide ? 0 : "100%"
-        }}
-        exit={{
-          opacity: 0
-        }}
-        transition={{ type: "spring", stiffness: 111 }}>
+      <Slide
+        key={nth_key}
+        idx={idx}
+        state={{ activeSlide, setActiveSlide, direction, setDirection }} >
         {child}
-      </motion.div >
+      </Slide>
     );
   });
 
   useEffect(() => {
     const sub = wheelDirection$
-      .subscribe(direction => {
+      .subscribe(sign => {
 
-        setSlide(prevSlide => {
-          const update = prevSlide + direction;
-          const max_bound = Math.min(update, children.length - 1);
-          const min_bound = Math.max(max_bound, 0);
+        setDirection(sign);
+        setActiveSlide(prevSlide => {
+          const unbounded = prevSlide + sign;
+          const max_bound = Math.min(unbounded, children.length - 1);
+          const slide = Math.max(max_bound, 0);
 
-          return min_bound;
+          return slide;
         });
 
       });
@@ -61,8 +66,8 @@ export default function Slider({ children }: { children: ReactNode[] }) {
   return (
     <div className={styles.container} >
       <AnimatePresence initial={false}>
-        {drawSlides()}
+        {drawSlides({ activeSlide, setActiveSlide, direction, setDirection })}
       </AnimatePresence>
-      <SliderProgress slide={slide} total={children.length} />
+      <SliderProgress slide={activeSlide} total={4} />
     </div>);
 }

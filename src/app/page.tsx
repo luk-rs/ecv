@@ -13,8 +13,6 @@ export interface SliderState {
 }
 
 
-
-
 const Home = () => {
 
   const [activeSlide, setActiveSlide] = useState(0);

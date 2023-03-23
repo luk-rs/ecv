@@ -49,5 +49,5 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  box-shadow: -5px 5px 10px 1px black;
+  box-shadow: -0px 0px 10px 5px var(--ecv-green);
 }

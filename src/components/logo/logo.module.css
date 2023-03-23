@@ -1,10 +1,40 @@
 .logo_container {
   position: absolute;
   z-index: 9999;
-  top: 21px;
-  left: 55px;
-  height: 45px;
-  width: 49px;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+  width: 94%;
+  display: flex;
+  align-items: center;
+}
+
+.logo_logo {
+  height: 59px;
+  width: 64px;
   mask: url(../../../public/logo.svg);
+  background-color: var(--ecv-light-green);
+}
+
+.logo_logo:hover {
   background-color: var(--ecv-green);
+}
+.logo_logo:active {
+  background-color: var(--ecv-light-green);
+  scale: 0.9;
+}
+
+.logo_email {
+  color: var(--ecv-light-green);
+  text-decoration: none;
+  padding-left: 33px;
+  font-size: 1.5rem;
+}
+.logo_email:hover {
+  color: var(--ecv-green);
+  text-decoration: underline;
+}
+.logo_email:active {
+  color: var(--ecv-light-green);
+  text-decoration: none;
 }

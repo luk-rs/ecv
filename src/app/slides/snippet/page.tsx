@@ -48,7 +48,7 @@ fn handle_situation(day: &str, coffee_level: i32, codebase: &str) {
 
 }`;
 
-export default function Snippet() {
+const Snippet = () => {
   const codeElementKey = 'code[class*="language-"]';
   synthwave84[codeElementKey] = {
     ...synthwave84[codeElementKey],
@@ -95,13 +95,16 @@ export default function Snippet() {
           language="rust"
           style={synthwave84}
           showLineNumbers
-          children={codeString}
           customStyle={{
             backgroundImage: undefined,
             lineHeight: 1,
           }}
-        />
+        >
+          {codeString}
+        </SyntaxHighlighter>
       </div>
     </motion.div>
   );
 }
+
+export default Snippet;

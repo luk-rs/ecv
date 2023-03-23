@@ -20,17 +20,17 @@ const Home = () => {
 
   const state: SliderState = { activeSlide, setActiveSlide, direction, setDirection }
 
-  const paragraphs = (): ReactNode[] => [
-    <Welcome key="slide-1" state={state} />,
-    <p key="slide-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>,
-    <p key="slide-3">"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>,
-    <p key="slide-4">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p >
+  const slides = (): ReactNode[] => [
+    <Welcome key="slide-1" />,
+    <p key="slide-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>,
+    <p key="slide-3">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>,
+    <p key="slide-4">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p >
   ]
   return (
     <>
       <Logo />
       <Slider state={state}>
-        {[...paragraphs()]}
+        {[...slides()]}
       </Slider>
     </>
   );

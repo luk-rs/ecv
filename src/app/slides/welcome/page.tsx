@@ -1,5 +1,3 @@
-"use client";
-
 import { CSSProperties } from "react";
 import Image from "next/image";
 import me_img from "../../../../public/welcome-me.jpg"
@@ -34,12 +32,6 @@ const experience_from = (year: number, month: number) => {
 };
 
 const experience = experience_from(2011, 11);
-// text("Hello fellow human👋🏼.\n\n My name is "),
-//   green("Luis Santos"),
-//   text(", a proud father of 2 👦🏼👶🏻 located in Vila Real, "),
-//   green("Portugal"),
-//   text(`.\n\n I have 12 years of experience developing software currently as a `),
-//   green("Lead Software Engineer"),
 
 const typings: Typing[] = [
   text("Hello fellow human.\n\n My name is "),
@@ -91,9 +83,7 @@ const Typewriter = () => {
   );
 }
 
-export default function Welcome(props: {
-  state: SliderState
-}) {
+const Page = () => {
   return (
     <div
       className={`${styles.welcome_container} ${ptMono.className}`}
@@ -103,3 +93,5 @@ export default function Welcome(props: {
     </div>
   );
 }
+
+export default Page;

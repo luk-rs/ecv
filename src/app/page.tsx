@@ -3,6 +3,7 @@
 import Logo from "@/components/logo/logo";
 import Slider from "@/components/slides/slider";
 import { ReactNode, useState } from "react";
+import Projects from "./slides/projects/page";
 import Welcome from "./slides/welcome/page";
 
 export interface SliderState {
@@ -22,6 +23,7 @@ const Home = () => {
 
   const slides = (): ReactNode[] => [
     <Welcome key="slide-1" />,
+    <Projects key="slide-2" />,
     <p key="slide-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>,
     <p key="slide-3">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>,
     <p key="slide-4">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p >

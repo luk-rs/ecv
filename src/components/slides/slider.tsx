@@ -18,7 +18,9 @@ const wheelDirection$ = (window: HasEventTargetAddRemove<WheelEvent>) => fromEve
 const Slide = ({ children, idx, state: { activeSlide, direction } }: { children: ReactNode, idx: number, state: SliderState }) => {
 
   return <motion.div
-    style={{ zIndex: idx * 10 }} className={styles.slide}
+    style={{
+      zIndex: idx * 10
+    }} className={styles.slide}
     initial={{ y: idx === activeSlide ? 0 : "100%" }}
     animate={{ y: idx <= activeSlide ? 0 : "100%" }}
     exit={{ opacity: 0 }}

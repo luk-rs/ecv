@@ -1,7 +1,8 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Michroma } from "next/font/google";
 
-const inter = Inter({
+const inter = Michroma({
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });

@@ -8,7 +8,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 11vh 6.6vw 11vh 6.6vw;
   background-color: white;
   display: flex;
   box-shadow: 0 4px 10px 2px black;
@@ -17,7 +16,7 @@
 .progress_track {
   position: absolute;
   width: 2px;
-  background-color: lightgray;
+  background-color: var(--ecv-light-green);
   left: 3.33%;
   top: 44%;
   height: 12%;
@@ -26,6 +25,6 @@
   flex-direction: column;
 }
 .progress_thumb {
-  background-color: slategray;
+  background-color: var(--ecv-green);
   transform-origin: top;
 }

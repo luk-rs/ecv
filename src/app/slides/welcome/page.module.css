@@ -8,15 +8,17 @@
 }
 .welcome_pic {
   position: relative;
-  width: 28.9%;
-  padding: 1.1%;
+  width: 30%;
   visibility: hidden;
+}
+.welcome_pic > img {
+  filter: drop-shadow(10px -10px 20px var(--ecv-green));
 }
 
 @keyframes welcome_pic_appear {
   0% {
     visibility: visible;
-    bottom: 3%;
+    bottom: -6%;
     opacity: 0;
   }
   100% {
@@ -29,9 +31,10 @@
 .welcome_typewriter {
   margin: 0;
   width: 68.9%;
-  padding: 1.1%;
+  padding-right: 2.2%;
   line-height: 3rem;
   font-size: 2rem;
+  text-align: justify;
 }
 
 @keyframes typewriter_char {
@@ -51,4 +54,6 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  fill: transparent;
+  background-color: transparent;
 }

@@ -10,31 +10,33 @@
 }
 
 .logo_logo {
-  height: 59px;
-  width: 64px;
-  mask: url(../../../public/logo.svg);
-  background-color: var(--ecv-light-green);
+  height: 39px;
+  width: 44px;
+  fill: var(--ecv-light-green);
+  stroke-width: 10;
+  stroke: var(--ecv-light-green);
+  transition: scale 0.3s ease-in;
 }
 
 .logo_logo:hover {
-  background-color: var(--ecv-green);
+  stroke: var(--ecv-green);
+  transition: scale 0.3s linear;
 }
-.logo_logo:active {
-  background-color: var(--ecv-light-green);
-  scale: 0.9;
+.logo_logo:hover:active {
+  fill: var(--ecv-green);
+  scale: 0.8;
 }
 
 .logo_email {
-  color: var(--ecv-light-green);
   text-decoration: none;
+  color: var(--ecv-light-green);
   padding-left: 33px;
-  font-size: 1.5rem;
+  font-size: 1.8em;
+  letter-spacing: 0.3em;
 }
 .logo_email:hover {
-  color: var(--ecv-green);
   text-decoration: underline;
 }
-.logo_email:active {
-  color: var(--ecv-light-green);
-  text-decoration: none;
+.logo_email:hover:active {
+  color: var(--ecv-green);
 }

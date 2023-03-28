@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Michroma } from "next/font/google";
+import { Khand } from "next/font/google";
 
-const inter = Michroma({
+const inter = Khand({
   weight: "400",
   subsets: ["latin"],
   display: "swap",

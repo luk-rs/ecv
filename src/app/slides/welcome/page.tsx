@@ -1,21 +1,12 @@
 import { CSSProperties } from "react";
 import Image from "next/image";
-import me_img from "../../../../public/welcome-me.jpg"
+import me_img from "../../../../public/welcome-me_1.png"
 import styles from "./page.module.css"
-import { SliderState } from "@/app/page";
-
-import { PT_Mono } from "next/font/google"
 
 interface Typing {
   color: string | null,
   char: string
 }
-
-const ptMono = PT_Mono({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const text = (content: string): Typing[] =>
   content.split("").map(char => { return { char, color: null } });
@@ -86,7 +77,7 @@ const Typewriter = () => {
 const Page = () => {
   return (
     <div
-      className={`${styles.welcome_container} ${ptMono.className}`}
+      className={styles.welcome_container}
     >
       <Typewriter />
       <Pic />

@@ -1,13 +1,17 @@
 .container {
   z-index: 2;
   background-color: rgb(32, 33, 35);
-  width: 100%;
+  width: calc(100% - 13.2vw);
   padding: 11vh 6.6vw 11vh 6.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .spotlight {
-  position: absolute;
   height: 78%;
+  max-height: 1200px;
+  max-width: 1500px;
   width: 87%;
   display: flex;
   flex-wrap: wrap;
@@ -18,16 +22,17 @@
 
 .title {
   width: 70%;
-  height: 10%;
+  min-height: 10%;
   display: flex;
   align-items: center;
   font-size: 3rem;
-  letter-spacing: 4px;
+  font-weight: 700;
+  letter-spacing: 6px;
 }
 
 .buttons {
   width: 30%;
-  height: 10%;
+  min-height: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,6 +74,8 @@
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  border-radius: 30px;
+  box-shadow: -6px -6px 10px rgba(52, 53, 55, 0.7), 6px 6px 10px #070708;
 }
 
 .slide {
@@ -77,7 +84,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  transition: transform 1s ease-out;
+  align-items: stretch;
+  transition: transform 0.5s ease-out;
 }
 
 .slide > div {
@@ -89,12 +97,16 @@
 .slide > div > h1 {
   margin: 0;
   padding: 2% 3%;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
+  color: rgba(var(--spotlight-white), 0.8);
+  text-shadow: 5px 5px 5px #000;
+  font-size: 3em;
 }
 
 .slide > div > p {
   margin: 0;
   padding: 0 3%;
+  font-size: 1.21em;
   word-wrap: break-word;
   text-align: center;
 }
@@ -106,43 +118,52 @@
 
 .slide > div:nth-child(2) {
   width: 100%;
-  height: 10%;
+  height: 6%;
 }
 .slide > div:nth-child(3) {
   width: 100%;
-  height: 60%;
+  height: 65%;
+  padding-top: 20px;
 }
-
-.project_pic {
-  margin: 30px;
-  padding: 10px;
-  height: calc(100% - 80px);
-  width: calc(65% - 80px);
-  border-radius: 30px;
-  box-shadow: -6px -6px 10px rgba(52, 53, 55, 0.7), 6px 6px 10px #070708;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.project_pic > img {
-  height: 100%;
-  width: 90%;
-  border-radius: 30px;
-}
-
-.slide > div:nth-child(3) > div:nth-child(even) {
-  padding: 15px;
-  height: calc(100% - 30px);
-  width: calc(35% - 30px);
-  color: rgba(var(--spotlight-white), 0.74);
-}
-.project_viewer > div:nth-child(4) {
+.slide > div:nth-child(4) {
   width: 100%;
   height: 20%;
 }
 
+/* todo definir o que por aqui */
+.slide > div:nth-child(3) > div:nth-child(even) {
+  width: 50%;
+  height: 100%;
+  color: rgba(var(--spotlight-white), 0.74);
+  padding-right: 50px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+}
+.slide > div:nth-child(3) > div:nth-child(odd) {
+  width: 50%;
+  height: 100%;
+  color: rgba(var(--spotlight-white), 0.74);
+}
+
+.project_pic {
+  margin-top: 30px;
+  margin-left: 50px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.project_pic > img {
+  height: 52%;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: -6px -6px 10px 10px rgba(52, 53, 55, 0.7),
+    6px 6px 10px 10px #070708;
+}
+
 .hashtags {
   color: var(--ecv-green);
+  letter-spacing: 2px;
 }

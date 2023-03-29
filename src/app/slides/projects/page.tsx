@@ -4,12 +4,17 @@
 import { MouseEventHandler, useState } from "react";
 import styles from "./page.module.css"
 import INTOUCH_PNG from "../../../../public/intouch.png"
+import RPM_PNG from "../../../../public/rpm.png"
+import IGNITE_PNG from "../../../../public/ignite.png"
+import CAM2_JPG from "../../../../public/cam2.jpg"
+import SINCH_JPG from "../../../../public/sinch.jpg"
+import HOLOBUILDER_JPG from "../../../../public/holobuilder.jpg"
 import Image, { StaticImageData } from "next/image";
 
 interface Project {
   title: string,
   description: string,
-  details: string | undefined,
+  details: string,
   image: StaticImageData,
   hashtags: string[]
 }
@@ -17,43 +22,73 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Intouch",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor eget mi vitae fringilla. Praesent ultricies ante eget lobortis rhoncus. Sed vitae arcu consequat, auctor orci ac, rhoncus nisl.",
-    details: "Hello",
+    description: "An application store that manages CI output and generates differentials providing automatic setups and updates.",
+    details: `Engineered and architected the platform.
+    The platform was composed by one desktop application accompanied by a windows service, two web services, a setup generator tool, and a CI analyser tool.
+    Used by customers to receive auto-updates, by QAs to manage version releases and by CS to sync with clients versions.
+    Support for multiple distribution channels.
+    Run-time translations.
+    Push Notifications.`,
     image: INTOUCH_PNG,
-    hashtags: ["dotnetdeveloper", "csharpcode", "dotnetcore", "aspnetmvc", "dotnetopensource", "dotnetnuke",
-      "microsoftdeveloper", "dotnetframework", "azuredevelopment", "dotnetwebdevelopment"]
+    hashtags: ["dotnet", "wpf", "aspnet", "cSharp", "sql", "entityFramework", "dapper", "rx", "windowsServices", "CI", "azureDevops", "unitTests", "integrationTests", "regressionTests", "staticAnalysis", "CD", "aws", "azure", "kubernetes", "docker", "terraform", "cdn", "s3Buckets", "bashScripting", "powershellScripting", "scrum", "kanban"]
   },
   {
     title: "CAM2",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor eget mi vitae fringilla. Praesent ultricies ante eget lobortis rhoncus. Sed vitae arcu consequat, auctor orci ac, rhoncus nisl.",
-    details: "Hello",
-    image: INTOUCH_PNG,
-    hashtags: ["dotnetdeveloper", "csharpcode", "dotnetcore", "aspnetmvc", "dotnetopensource", "dotnetnuke",
-      "microsoftdeveloper", "dotnetframework", "azuredevelopment", "dotnetwebdevelopment"]
+    description: "An high precision metrology software targeting industries such as automative and aerospace which enabled the user to verify correctness of production against what was projected.",
+    details: `Developed features and performed required maintenaince.
+    Integrated new hardware and firmware versions into the platform.
+    Improved performance either by refactoring or fixing complexity issues.
+    Integrated new UX feedback and elements.
+    Engineered an automatic alignment algorithm based on genetic algorithms.`,
+    image: CAM2_JPG,
+    hashtags: ["dotnet", "cSharp", "wpf", "cuda", "math", "algorithms", "3d", "rendering", "mechanics", "CAD", "CI", "bitbucket", "unit-tests", "scrum", "staticAnalysis"]
   },
   {
     title: "RPM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor eget mi vitae fringilla. Praesent ultricies ante eget lobortis rhoncus. Sed vitae arcu consequat, auctor orci ac, rhoncus nisl.",
-    details: "Hello",
-    image: INTOUCH_PNG,
-    hashtags: ["dotnetdeveloper", "csharpcode", "dotnetcore", "aspnetmvc", "dotnetopensource", "dotnetnuke",
-      "microsoftdeveloper", "dotnetframework", "azuredevelopment", "dotnetwebdevelopment"]
-  },
-  {
-    title: "GDPR SDK",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor eget mi vitae fringilla. Praesent ultricies ante eget lobortis rhoncus. Sed vitae arcu consequat, auctor orci ac, rhoncus nisl.",
-    details: "Hello",
-    image: INTOUCH_PNG,
-    hashtags: ["dotnetdeveloper", "csharpcode", "dotnetcore", "aspnetmvc", "dotnetopensource", "dotnetnuke",
-      "microsoftdeveloper", "dotnetframework", "azuredevelopment", "dotnetwebdevelopment"]
+    description: "A platform for repeated part measurement and inspection.",
+    details: `A platform composed by 3 applications, a desktop application targetting factory workers who performed inspections, a backend to gather the metadata from inspections and a backoffice targetting production managers.
+    Lowered learning curve of CAM2 based on better UX on the desktop application.
+    Helped managers by providing multiple visualization tools on the metadata being tracked.
+    Automatic trend analysis calculations on the tracked data.
+    Push notifications based on inspection alerts.`,
+    image: RPM_PNG,
+    hashtags: ["dotnet", "cSharp", "wpf", "3d", "rendering", "aspnet", "javascript", "aureliaJs", "threeJs", "sql", "CI", "bitbucket", "scrum"]
   },
   {
     title: "Sinch SDK",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor eget mi vitae fringilla. Praesent ultricies ante eget lobortis rhoncus. Sed vitae arcu consequat, auctor orci ac, rhoncus nisl.",
-    details: "Hello",
-    image: INTOUCH_PNG,
-    hashtags: ["dotnetdeveloper", "csharpcode", "dotnetcore", "aspnetmvc", "dotnetopensource", "dotnetnuke",
-      "microsoftdeveloper", "dotnetframework", "azuredevelopment", "dotnetwebdevelopment"]
+    description: "A unified client to all Sinch services under the form of a Nuget package.",
+    details: `Engineered the beta and alpha versions of the package.
+    Wrote the DSL to unify all supported services.
+    Supported SMS, MMS and a myriad of messaging services (WhatsApp, Telegram, Instagram, Kakao, Line, … ).
+    Supported phone number provision and management.
+    Designed for extensibility (logging, configurations, …).
+    Designed for enhanced error handling and reporting.`,
+    image: SINCH_JPG,
+    hashtags: ["dotnet", "multiPlatform", "api", "DSL", "CI", "github", "unitTests", "integrationTests", "messaging", "audio", "video", "kanban"]
+  },
+  {
+    title: "Ignite",
+    description: "A bootstrapping and management platform.",
+    details: `Create applications based on templates.
+    Support for backends in c#, Rust.
+    Support for SSPA frontend applications.
+    Azure devops compatible.
+    Integrated CI on templates with support for build, unit testing, static and vulnerability analysis.
+    Integrated CD on templates with support for integration testing, contract testing.
+    Automatic infrastructure as code generation for deployments on AWS.`,
+    image: IGNITE_PNG,
+    hashtags: ["dotnet", "cSharp", "backstageIo", "javascript", "react", "templates", "CI", "azureDevops", "unitTests", "integrationTests", "contractTests", "CD", "docker", "aws", "scrum", "kanban"]
+  },
+  {
+    title: "Holobuilder",
+    description: "A platform for construction progress management.",
+    details: `Implement features and bug fixing.
+    Support users and authorization managment.
+    Support for project metadata.
+    Salesforce integration.
+    Support for third party construction softwares integration.`,
+    image: HOLOBUILDER_JPG,
+    hashtags: ["java", "kotlin", "3d", "rendering", "threeJs", "CI", "bitbucket", "gradle", "CD", "docker", "azure", "kanban"]
   }
 ]
 
@@ -109,7 +144,12 @@ const ProjectSlide = ({ project, info, idx }: { project: number, info: Project, 
         <div className={styles.project_pic}>
           <Image src={info.image} alt="" />
         </div>
-        <div> {info.details}</div>
+        <div>
+          {info.details.split("\n").map((line, idx) => {
+            const key = `project-details-${idx}`;
+            return <p key={key}>{line}</p>;
+          })}
+        </div>
       </div>
       <div className={styles.hashtags}>
         <p>

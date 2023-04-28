@@ -67,11 +67,13 @@ export default function Slider({ children, state: { activeSlide, setActiveSlide,
     };
   }, []);
 
+  const slides = drawSlides({ activeSlide, setActiveSlide, direction, setDirection });
+
   return (
     <div className={styles.container} >
       <AnimatePresence initial={false}>
-        {drawSlides({ activeSlide, setActiveSlide, direction, setDirection })}
+        {slides}
       </AnimatePresence>
-      <SliderProgress slide={activeSlide} total={4} />
+      <SliderProgress slide={activeSlide} total={slides.length} />
     </div>);
 }

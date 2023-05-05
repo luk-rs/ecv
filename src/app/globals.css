@@ -1,17 +1,25 @@
 html {
-  overflow: auto auto;
+    overflow: auto auto;
 
-  --ecv-green: rgb(34, 139, 34);
-  --ecv-light-green: rgba(34, 139, 34, 0.3);
-  --ecv-lightest-green: rgba(34, 139, 34, 0.1);
+    --ecv-green: rgb(34, 139, 34);
+    --ecv-light-green: rgba(34, 139, 34, 0.3);
+    --ecv-lightest-green: rgba(34, 139, 34, 0.1);
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: auto;
+    margin: 0;
+    padding: 0;
+    height: auto;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10% 6%;
 }

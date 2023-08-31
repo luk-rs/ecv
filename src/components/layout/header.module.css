@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav > ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.nav > ul > li {
+  margin-right: 10px;
+}

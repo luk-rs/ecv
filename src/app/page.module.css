@@ -2,12 +2,15 @@
   background-color: green;
 }
 
-#section1,
-#section2,
-#section3 {
-  height: 300;
+.section1 {
+  height: 450px;
+  background-color: green;
 }
-
-#section1 {
-  fill: green;
+.section2 {
+  height: 450px;
+  background-color: red;
+}
+.section3 {
+  height: 350px;
+  background-color: blue;
 }

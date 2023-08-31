@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
 import './globals.css'
 
 
@@ -14,44 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Header />
-      <body>{children}</body>
-      <Footer />
+
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
-}
-
-
-function Header() {
-  return (
-    <header>
-      <section>LOGO</section>
-      <section>
-        <nav>
-          <ul>
-            <li><Link href="/#who">Who</Link></li>
-            <li><Link href="/#who">Education</Link></li>
-            <li><Link href="/#who">Professional</Link></li>
-            <li><Link href="/#who">Personal</Link></li>
-          </ul>
-        </nav>
-      </section>
-      <section>
-
-      </section>
-    </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <section>
-        <p>copyrights reserved ©</p>
-      </section>
-      <section>
-        <Link href="/#who">Contact</Link>
-      </section>
-    </footer>
-  );
 }

@@ -1,3 +1,13 @@
 .main {
   background-color: green;
 }
+
+#section1,
+#section2,
+#section3 {
+  height: 300;
+}
+
+#section1 {
+  fill: green;
+}

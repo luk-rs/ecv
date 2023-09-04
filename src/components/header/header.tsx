@@ -1,4 +1,4 @@
-import Hamburguer from "../navigation/hamburguer";
+import Hamburguer from "./hamburguer";
 import styles from './header.module.css';
 
 const Header = () => {

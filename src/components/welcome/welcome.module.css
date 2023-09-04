@@ -1,0 +1,31 @@
+.personal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+  color: #fff;
+  text-shadow: 1px 0 5px #333;
+}
+
+.personal p {
+  --p-margin: 100px;
+  margin-top: var(--p-margin);
+  margin-left: var(--p-margin);
+  margin-right: var(--p-margin);
+  max-width: calc(100% - 2 * var(--p-margin));
+  word-wrap: break-word;
+}
+
+.personal p span {
+  opacity: 0;
+  animation: typewrite 0.3s forwards;
+}
+
+@keyframes typewrite {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

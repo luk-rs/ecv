@@ -38,6 +38,17 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  /* Hamburguer menu vars*/
+  --hamburger-gap: 6px;
+  --bar-height: 3px;
+  --bar-width: 30px;
+  --foreground: #fff;
+  --background: #333;
+  --hamburguer-margin: 20px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburguer-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --hamburguer-width: var(--bar-width);
 }
 
 @media (prefers-color-scheme: dark) {

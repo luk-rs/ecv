@@ -1,22 +1,19 @@
-'use client'
-
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import styles from './page.module.css';
 
 export default function Home() {
+
+  const sections = process.env.HTML_SECTIONS?.split(',').map((section, idx) => (
+    <section
+      key={`home-section-${idx}`}
+      className={styles.section}
+      id={`${section}`}>
+      {section}
+    </section>
+  ));
+
   return (
     <main className={styles.main}>
-      <section className={styles.section1}>
-        section1
-      </section>
-      <section className={styles.section2}>
-        section2
-      </section>
-      <section id='who' className={styles.section3}>
-        section3
-      </section>
+      {sections}
     </main>
   )
 }

@@ -6,6 +6,13 @@ import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import './globals.css';
 
+import { Rajdhani } from 'next/font/google';
+
+const rajdhani = Rajdhani({
+  weight: "500",
+  subsets: ["latin"]
+
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={rajdhani.className}>
         <Header />
         {children}
         <Footer />

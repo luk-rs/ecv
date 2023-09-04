@@ -1,6 +1,13 @@
 .main {
 }
 
-.section {
-  height: 450px;
+.main > section:nth-child(1) {
+  background-image: url("/personal/mountains.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main > section {
+  /* TODO Please remove this */
+  min-height: 450px;
 }

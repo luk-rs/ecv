@@ -3,17 +3,6 @@
   flex-direction: row;
   align-items: center;
   height: calc(var(--hamburguer-height) + 2 * var(--hamburguer-margin));
-
-  /* Hamburguer menu vars*/
-  --hamburger-gap: 6px;
-  --bar-height: 3px;
-  --bar-width: 30px;
-  --foreground: #fff;
-  --background: #333;
-  --hamburguer-margin: 20px;
-  --animation-timing: 200ms ease-in-out;
-  --hamburguer-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-  --hamburguer-width: var(--bar-width);
 }
 .header > section:first-child {
   margin: var(--hamburguer-margin);
@@ -21,6 +10,4 @@
 
 .header > section:last-child {
   flex-grow: 1;
-  display: flex;
-  justify-content: end;
 }

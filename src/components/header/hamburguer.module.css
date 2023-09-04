@@ -8,7 +8,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 10;
   margin: var(--hamburguer-margin);
   cursor: pointer;
 }
@@ -75,6 +75,7 @@
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 9;
 }
 
 .hamburguer_menu:has(input:checked) + .hamburguer_sidebar {

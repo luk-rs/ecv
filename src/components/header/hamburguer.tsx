@@ -31,6 +31,7 @@ const Hamburguer = ({ links }: HamburguerProps) => {
         <input
           type="checkbox"
           checked={opened}
+          readOnly
           title="hamburguer"
           name="hamburguer"
           onClick={() => setOpened(!opened)} />

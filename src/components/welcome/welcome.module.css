@@ -1,13 +1,13 @@
-.personal {
+.welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70vh;
+  height: 80vh;
   color: #fff;
   text-shadow: 1px 0 5px #333;
 }
 
-.personal p {
+.welcome p {
   --p-margin: 100px;
   margin-top: var(--p-margin);
   margin-left: var(--p-margin);
@@ -16,9 +16,10 @@
   word-wrap: break-word;
 }
 
-.personal p span {
+.welcome p span {
   opacity: 0;
-  animation: typewrite 0.3s forwards;
+  animation: typewrite 0.1s forwards;
+  font-size: 1.35rem;
 }
 
 @keyframes typewrite {

@@ -1,0 +1,35 @@
+.personal {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.personal h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 50px;
+}
+
+.personal :not(:nth-child(1)) {
+  width: 55%;
+  margin-top: 8px;
+}
+
+.personal label:not(:nth-child(1)) {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 5px 10px 0 0;
+}
+
+.label {
+  color: #aaa;
+  font-size: small;
+}
+
+.labelValue {
+  font-size: larger;
+}

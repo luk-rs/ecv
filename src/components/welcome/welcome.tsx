@@ -22,7 +22,7 @@ export default function Welcome() {
 
 
   return (
-    <div className={styles.personal}>
+    <div className={styles.welcome}>
       <p>{phrase}</p>
     </div>
   );

@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   margin-left: 100px;
   margin-right: 100px;
+  align-items: center;
 }
 
 .personal h1 {
@@ -11,25 +12,65 @@
   margin-bottom: 15px;
   margin-top: 50px;
 }
-
-.personal :not(:nth-child(1)) {
-  width: 55%;
+.personal section {
+  width: 50%;
+  height: 100%;
   margin-top: 8px;
 }
 
-.personal label:not(:nth-child(1)) {
-  width: 45%;
+.personal section:nth-child(2) {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 5px 10px 0 0;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: center;
+}
+
+.personal section label {
+  width: 50%;
+  text-align: end;
+  padding-right: 15px;
+  margin-top: 8px;
+}
+
+.personal section div {
+  margin-top: 8px;
+  width: 50%;
 }
 
 .label {
   color: #aaa;
-  font-size: small;
+  font-size: 1rem;
 }
 
 .labelValue {
-  font-size: larger;
+  font-size: calc(1rem * 1.414);
+}
+
+.personal section:nth-child(3) {
+  display: flex;
+  justify-content: center;
+}
+
+.profile_pic {
+  background-color: white;
+  border-radius: 5% 20% 5% 20%;
+  animation: profile_pic_highlight 4s ease-out infinite;
+}
+
+@keyframes profile_pic_highlight {
+  0% {
+    box-shadow: 5px 5px 15px green;
+  }
+  25% {
+    box-shadow: 5px -5px 15px green;
+  }
+  50% {
+    box-shadow: -5px -5px 15px green;
+  }
+  75% {
+    box-shadow: -5px 5px 15px green;
+  }
+  100% {
+    box-shadow: 5px 5px 15px green;
+  }
 }

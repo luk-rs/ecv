@@ -19,8 +19,6 @@ export default function Welcome() {
       </span>
     ));
 
-
-
   return (
     <div className={styles.welcome}>
       <p>{phrase}</p>

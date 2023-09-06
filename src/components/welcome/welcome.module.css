@@ -5,6 +5,9 @@
   height: 80vh;
   color: #fff;
   text-shadow: 1px 0 5px #333;
+  background-image: url("/welcome/mountains.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .welcome p {

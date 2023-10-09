@@ -1,3 +1,5 @@
+
+import Education from '@/components/education/education';
 import Personal from '@/components/personal/personal';
 import Welcome from '@/components/welcome/welcome';
 import styles from './page.module.css';
@@ -5,7 +7,8 @@ import styles from './page.module.css';
 
 const dictionary: { [key: string]: JSX.Element } = {
   "welcome": <Welcome />,
-  "personal": <Personal />
+  "personal": <Personal />,
+  "education": <Education />
 }
 
 const builder = (link: string, idx: number) => {

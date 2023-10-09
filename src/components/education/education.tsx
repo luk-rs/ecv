@@ -1,10 +1,12 @@
-import { fetchSchools } from "@/actions/fetch-schools-action";
+
 import { School } from "@/models/school";
 import EducationRenderer from "./educationRenderer";
 
-export default async function Education() {
+type EducationProps = {
+  schools: School[];
+}
 
-  let schools: School[] = await fetchSchools();
+export default function Education({ schools }: EducationProps) {
 
   return (
     <>

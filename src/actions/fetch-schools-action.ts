@@ -1,8 +1,8 @@
 "use server";
 
-import { School, SchoolSchema } from "@/lib/types/school";
+import { School, SchoolSchema } from "@/models/school";
 
-import schools_json from "../app/api/education/schools.json";
+import schools_json from "./schools.json";
 
 export async function fetchSchools() {
   const schools: School[] = [];
@@ -10,7 +10,7 @@ export async function fetchSchools() {
 
   schools_json.forEach((element: any) => {
     const result = SchoolSchema.safeParse(element);
-    console.log("SUCCESS: " + result.success);
+
     if (!result.success) {
       const errorMessage = result.error.issues.reduce(
         (acc, issue) => `${acc} | ${issue.path[0]}: ${issue.message}`,

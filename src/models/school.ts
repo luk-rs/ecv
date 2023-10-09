@@ -14,6 +14,7 @@ export type SchoolLevel = (typeof schoolLevelValues)[number];
 export const SchoolSchema = z.object({
   name: z.string().trim().min(1).max(50),
   level: z.enum(schoolLevelValues),
+  description: z.string().trim().min(1).max(512),
 });
 
 export type School = z.infer<typeof SchoolSchema>;

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Infantario S. Pedro",
+    "level": "Pre school"
+  },
+  {
+    "name": "Colegio S. Jose",
+    "level": "Elementary school"
+  },
+  {
+    "name": "Colegio Boavista",
+    "level": "Middle school"
+  },
+  {
+    "name": "Escola Camilo Castelo Branco",
+    "level": "High school"
+  },
+  {
+    "name": "Universidade do Minho",
+    "level": "Bachelor"
+  },
+  {
+    "name": "Faculdade de Engenharia da Universidade do Porto",
+    "level": "Masters"
+  }
+]

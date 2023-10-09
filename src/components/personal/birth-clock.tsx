@@ -41,7 +41,7 @@ export default function BirthClock() {
     updateBirthTimer();
     const interval = setInterval(() => updateBirthTimer(), 1000);
     return () => clearInterval(interval);
-  }, []);
+  });
 
   return (
     <>

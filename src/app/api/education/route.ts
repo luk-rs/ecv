@@ -1,5 +1,7 @@
-import { NextResponse } from "next/server";
-
 export async function GET(_: Request) {
-  return NextResponse.error();
+  return new Response(
+    JSON.stringify({
+      message: "Hello from education route there's nothing to see here",
+    })
+  );
 }

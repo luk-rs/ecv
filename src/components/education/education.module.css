@@ -1,12 +1,11 @@
 .education {
   height: 800px;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-  position: relative;
   overflow: hidden;
-  border-bottom-right-radius: 50px;
+}
+
+.schoolSpotlight {
+  display: flex;
+  flex-direction: column;
 }
 
 .spotlight {
@@ -15,13 +14,17 @@
   align-items: center;
 }
 
-.schoolPic {
-  position: absolute;
-  top: 150px;
-  left: 0;
+.spotlight h3 {
+  color: rgba(136, 136, 136, 0.75);
+}
+.spotlight p span {
+  color: rgba(136, 136, 136, 1);
+}
+
+.schoolTile {
   height: 100%;
   transition: left 0.5s ease-in-out, width 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
   box-shadow: -5px 0px 5px #888;
-  border-top-left-radius: 50px;
+  position: none;
 }

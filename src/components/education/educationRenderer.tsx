@@ -1,6 +1,7 @@
 "use client";
 
-import { School } from "@/models/school";
+import { fetchSchools } from "@/actions/fetch-schools-action";
+import { School } from '@/models/school';
 
 import { useEffect, useRef, useState } from "react";
 
@@ -14,26 +15,30 @@ import UM_HDR from "../../../public/education/UM_HDR.png";
 
 import styles from "./education.module.css";
 
-type EducationRendererProps = {
-  schools: School[];
-}
 
 type EducationRendererState = {
   width: number;
   selected: number;
+  schools: School[];
 }
 
-export default function EducationRenderer({ schools }: EducationRendererProps) {
+export default function EducationRenderer() {
 
   const divRef = useRef<HTMLDivElement | null>(null);
-  const [state, setState] = useState<EducationRendererState>({ width: 0, selected: schools.length - 1 });
+  const [state, setState] = useState<EducationRendererState>({ width: 0, selected: -1, schools: [] });
 
   function refreshSize() {
-    if (divRef.current) setState({ ...state, width: divRef.current.clientWidth });
+    if (divRef.current) setState(prev => ({ ...prev, width: divRef.current!.clientWidth }));
   }
 
   useEffect(() => {
-    console.log("effect")
+    fetchSchools()
+      .then((result) => {
+        setState((prev) => ({ ...prev, schools: result, selected: result.length - 1 }))
+      });
+  }, []);
+
+  useEffect(() => {
     refreshSize();
   }, [divRef]);
 
@@ -45,25 +50,27 @@ export default function EducationRenderer({ schools }: EducationRendererProps) {
   }, []);
 
   function schoolSelected(idx: number) {
-    console.log(schools[idx].name);
     setState({ ...state, selected: idx });
   }
+
   return (
     <div ref={divRef} className={styles.education}>
-      <SchoolSpotlight renderer={state} schools={schools} />
-      {schools.map((school, idx) => <SchoolTile key={`school-pic-${idx}`} idx={idx} school={school} clickHandler={schoolSelected} renderer={state} />)}
+      <div className={styles.schoolSpotlight}>
+        <Spotlight state={state} />
+        {state.schools.map((school, idx) => <SchoolTile key={`school-pic-${idx}`} idx={idx} school={school} clickHandler={schoolSelected} renderer={state} />)}
+      </div>
     </div>
   )
 }
 
 type SchoolSpotlightProps = {
-  renderer: EducationRendererState;
-  schools: School[];
+  state: EducationRendererState;
 }
 
-function SchoolSpotlight({ renderer, schools }: SchoolSpotlightProps) {
+function Spotlight({ state: renderer }: SchoolSpotlightProps) {
 
-  const school = schools[renderer.selected];
+  if (renderer.schools.length === 0) return (<></>);
+  const school = renderer.schools[renderer.selected];
 
   return (
     <div className={styles.spotlight}>
@@ -88,7 +95,8 @@ const schoolsHdr = [A31_HDR, CMSJ_HDR, CNSB_HDR, ECCB_HDR, UM_HDR, FEUP_HDR];
 
 function SchoolTile({ renderer, idx, school, clickHandler }: SchoolTileProps) {
 
-  if (renderer.width === 0) return <></>;
+  if (renderer.width === 0)
+    return <></>;
 
   const expandedLeft = () => idx * 50;
   const collapsedLeft = () => renderer.width - (6 - idx) * 50;
@@ -96,17 +104,17 @@ function SchoolTile({ renderer, idx, school, clickHandler }: SchoolTileProps) {
 
   const width = renderer.width - expandedLeft();
 
-  return (
-    <>
-      <Image src={schoolsHdr[idx]} alt={school.name}
-        width={width} height={600}
-        className={styles.schoolPic}
-        style={{
-          left: left,
-          opacity: renderer.selected <= idx ? 1 : 0.5,
-        }}
-        onClick={_ => clickHandler(idx)} />
-    </>
+  return (<>
+    <Image src={schoolsHdr[idx]} alt={school.name}
+      className={styles.schoolTile}
+      style={{
+        left: left,
+        position: "absolute",
+        opacity: renderer.selected <= idx ? 1 : 0.5,
+      }}
+      fill
+      onClick={_ => clickHandler(idx)} />
+  </>
   );
 
 }

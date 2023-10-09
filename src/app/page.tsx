@@ -1,21 +1,18 @@
 
-import { fetchSchools } from "@/actions/fetch-schools-action";
+
 import Education from '@/components/education/education';
 import Personal from '@/components/personal/personal';
 import Welcome from '@/components/welcome/welcome';
-import { School } from '@/models/school';
 import styles from './page.module.css';
 
-const dictionary: (schools: School[]) => { [key: string]: JSX.Element } = (schools) => {
-  return {
-    "welcome": <Welcome />,
-    "personal": <Personal />,
-    "education": <Education schools={schools} />
-  }
+const dictionary: { [key: string]: JSX.Element } = {
+  "welcome": <Welcome />,
+  "personal": <Personal />,
+  "education": <Education />
 };
-const builder = (link: string, idx: number, schools: School[]) => {
+const builder = (link: string, idx: number) => {
 
-  const elem = dictionary(schools)[link] || link;
+  const elem = dictionary[link] || link;
   return (
     <section id={link} key={`home-section-${idx}`}>
       {elem}
@@ -28,12 +25,8 @@ export default async function Home() {
   const splitted = process.env.HTML_SECTIONS
     ?.split(',') ?? [];
 
-  const skip = 1;
-
-  const schools: School[] = await fetchSchools(); //TODO move to something that makes sense
-
   const sections = splitted
-    .map((section, idx) => builder(section, idx, schools));
+    .map((section, idx) => builder(section, idx));
 
 
   return (

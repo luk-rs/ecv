@@ -20,14 +20,13 @@ const builder = (link: string, idx: number) => {
   )
 }
 
-export default async function Home() {
+export default function Home() {
 
   const splitted = process.env.HTML_SECTIONS
     ?.split(',') ?? [];
 
   const sections = splitted
     .map((section, idx) => builder(section, idx));
-
 
   return (
     <main className={styles.main}>

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Associacao 31",
+    "level": "Pre school",
+    "description": "Where I learned to share, play with others, and follow instructions. I also developed my social, emotional, and cognitive skills."
+  },
+  {
+    "name": "Colegio Moderno de S. Jose",
+    "level": "Elementary school",
+    "description": "Here I learned to read, write, and do math. I also developed my critical thinking and problem-solving skills. I learned to love learning and to be curious about the world around me."
+  },
+  {
+    "name": "Colegio Nossa Senhora da Boavista",
+    "level": "Middle school",
+    "description": "When I prepared for the challenges of high school and beyond. I developed my academic skills in a variety of subjects. I also explored my interests and talents."
+  },
+  {
+    "name": "Escola Camilo Castelo Branco",
+    "level": "High school",
+    "description": "This was where I prepared for college and careers. I developed my academic and critical thinking skills. I gained a foundation in a variety of subjects."
+  },
+  {
+    "name": "Universidade do Minho",
+    "level": "Bachelor",
+    "description": "Where I started to gain a broad education in my chosen field of study. I prepared for a career in my field and developed my critical thinking and problem-solving skills."
+  },
+  {
+    "name": "Faculdade de Engenharia da Universidade do Porto",
+    "level": "Masters",
+    "description": "Here I gained specialized knowledge in my chosen field of study. I prepared for a career in research or teaching and developed my independent research skills."
+  }
+]

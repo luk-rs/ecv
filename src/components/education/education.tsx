@@ -57,7 +57,9 @@ export default function Education() {
     <div ref={divRef} className={styles.education}>
       <div className={styles.schoolSpotlight}>
         <Spotlight state={state} />
-        {state.schools.map((school, idx) => <SchoolTile key={`school-pic-${idx}`} idx={idx} school={school} clickHandler={schoolSelected} renderer={state} />)}
+        <div className={styles.carousel}>
+          {state.schools.map((school, idx) => <SchoolTile key={`school-pic-${idx}`} idx={idx} school={school} clickHandler={schoolSelected} renderer={state} />)}
+        </div>
       </div>
     </div>
   )
@@ -102,13 +104,13 @@ function SchoolTile({ renderer, idx, school, clickHandler }: SchoolTileProps) {
   const collapsedLeft = () => renderer.width - (6 - idx) * 50;
   const left = renderer.selected >= idx ? expandedLeft() : collapsedLeft();
 
-  const width = renderer.width - expandedLeft();
+  // const width = renderer.width - expandedLeft();
 
   return (<>
     <Image src={schoolsHdr[idx]} alt={school.name}
       className={styles.schoolTile}
       style={{
-        // left: left,
+        left: left,
         opacity: renderer.selected <= idx ? 1 : 0.7,
       }}
       fill

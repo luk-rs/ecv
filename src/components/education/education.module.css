@@ -21,6 +21,12 @@
   color: rgba(136, 136, 136, 1);
 }
 
+.carousel {
+  position: relative;
+  height: 800px;
+  margin-top: 30px;
+}
+
 .schoolTile {
   height: 100%;
   transition: left 0.5s ease-in-out, width 0.5s ease-in-out,
